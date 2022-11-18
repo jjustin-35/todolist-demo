@@ -1,3 +1,7 @@
 export const ADD_TODO = "ADD_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
-export const TOGGLE_TODO = "TOGGLE_TODO";
+export const UPDATE_TOGGLE_TODO = "UPDATE_TOGGLE_TODO";
+
+export const GET_ALL = "GET_ALL";
+export const GET_ISFINISHED_TRUE = "GET_ISFINISHED_TRUE";
+export const GET_ISFINISHED_FALSE = "GET_ISFINISHED_FALSE";

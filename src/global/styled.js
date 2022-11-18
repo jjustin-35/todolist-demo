@@ -25,6 +25,7 @@ export const Container = styled.div`
 
 export const Row = styled.div`
     display: flex;
+    justify-content: ${({justify = "center"}) => justify};
 `
 
 const countWidth = (col) => col * (1/12) * 100;
