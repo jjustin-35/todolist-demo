@@ -8,6 +8,8 @@ import {List} from '../container/List';
 import {Input} from '../container/Input';
 
 function App() {
+  document.title = "todolist";
+
   const display = useSelector(state => state.display);
 
   return (

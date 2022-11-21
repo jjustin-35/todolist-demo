@@ -9,6 +9,14 @@ export const addTodo = (memo) => (id) => ({
     }
 })
 
+export const patchTodo = id => memo => ({
+    type: actions.PATCH_TODO,
+    payload: {
+        id,
+        memo
+    }
+})
+
 export const removeTodo = id => ({
     type: actions.REMOVE_TODO,
     id

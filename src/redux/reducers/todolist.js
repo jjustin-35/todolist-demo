@@ -6,9 +6,20 @@ export const todolist = (state = [{memo: "first", isFinished: false, id: "1111"}
             return [
                 ...state,
                 action.payload
-            ]
+            ];
+        case actions.PATCH_TODO:
+            return state.map(todo => {
+                if(todo.id === action.payload.id){
+                    return {
+                        ...todo,
+                        memo: action.payload.memo
+                    }
+                }
+
+                return todo;
+            })
         case actions.REMOVE_TODO:
-            return state.filter(todo => todo.id !== action.id)
+            return state.filter(todo => todo.id !== action.id);
         case actions.PATCH_TOGGLE_TODO:
             return state.map(todo => {
                 if(todo.id === action.id){

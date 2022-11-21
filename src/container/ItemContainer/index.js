@@ -16,11 +16,13 @@ const Item = ({todo}) => {
     dispatch(actions.removeTodo(id))
   }
 
+  const onEditFinished = (memo)=>{
+    dispatch(actions.patchTodo(id)(memo));
+  }
+
   return (
     <>
-        <ItemStyle onCheck={onCheck} onDelete={onDelete} isFinished={todo.isFinished}>
-          {todo.memo}
-        </ItemStyle>
+        <ItemStyle onCheck={onCheck} onEditFinished={onEditFinished} onDelete={onDelete} isFinished={todo.isFinished} memo={todo.memo}/>
     </>
   )
 }

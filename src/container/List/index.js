@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import propTypes from 'prop-types';
 import { Item } from '../ItemContainer';
 import {Message} from '../../components/Message';
+import { ListStyle } from '../../components/List';
 
 const List = ({tab}) => {
     const todolist = useSelector(state => {
@@ -16,20 +17,21 @@ const List = ({tab}) => {
         }
     });
 
+    let content;
     if(todolist.length === 0){
-        return (
+        content = (
             <Message>
                 這裡沒有東西喔！
             </Message>
         )
+    }else{
+        content = todolist.map(todo => <Item todo={todo} key={todo.id}/>)
     }
 
   return (
-    <>
-        {
-            todolist.map(todo => <Item todo={todo} key={todo.id}/>)
-        }
-    </>
+    <ListStyle>
+        {content}
+    </ListStyle>
   )
 }
 

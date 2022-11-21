@@ -15,10 +15,11 @@ export const Input = () => {
     const onAdd = () => {
         const id = uuidv4();
         dispatch(addTodo(input)(id));
+        setInput("");
     }
   return (
     <>
-        <InputStyle onAdd={onAdd} onInput={onInput}/>
+        <InputStyle onAdd={onAdd} onInput={onInput} input={input}/>
     </>
   )
 }
