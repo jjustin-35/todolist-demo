@@ -1,13 +1,13 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { ItemWrapper,Checkbox ,Text, Option } from './styled';
-import {data} from './data';
 
-export const ItemStyle = ({onCheck, onDelete, isFinished}) => {
+const ItemStyle = ({children, onCheck, onDelete, isFinished}) => {
   return (
     <ItemWrapper>
-        <Checkbox defaultChecked={data[0].isFinished} onClick={onCheck}/>
+        <Checkbox defaultChecked={isFinished} onClick={onCheck}/>
         <Text isFinished={isFinished}>
-            {data[0].memo}
+            {children}
         </Text>
         <Option onClick={onDelete}>
             刪除
@@ -15,3 +15,12 @@ export const ItemStyle = ({onCheck, onDelete, isFinished}) => {
     </ItemWrapper>
   )
 }
+
+ItemStyle.propTypes = {
+  children: propTypes.string,
+  onCheck: propTypes.func,
+  onDelete: propTypes.func,
+  isFinished: propTypes.bool
+}
+
+export {ItemStyle};

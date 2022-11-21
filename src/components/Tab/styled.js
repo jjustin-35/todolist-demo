@@ -10,6 +10,7 @@ export const TabButton = styled.button`
     background-color: white;
     border-style: solid;
     width: 100%;
+    cursor: pointer;
 `
 
 export const TabButtons = styled.div`

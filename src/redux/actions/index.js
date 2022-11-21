@@ -14,8 +14,8 @@ export const removeTodo = id => ({
     id
 })
 
-export const updateToggleTodo = id => ({
-    type: actions.UPDATE_TOGGLE_TODO,
+export const patchToggleTodo = id => ({
+    type: actions.PATCH_TOGGLE_TODO,
     id
 })
 

@@ -16,8 +16,11 @@ export const Text = styled.p`
   margin: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   color: black;
   ${({isFinished}) => isFinished && `text-decoration: line-through; color: gray`};
+  width: 100%;
 `;
 
 export const Option = styled.a`
@@ -25,5 +28,6 @@ export const Option = styled.a`
     text-decoration: none;
     cursor: pointer;
     color: blue;
+    white-space: nowrap;
 `;
 
