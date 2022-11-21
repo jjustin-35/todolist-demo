@@ -3,9 +3,11 @@ import propTypes from 'prop-types';
 import { ItemWrapper,Checkbox ,Text, Option, ContentWrapper, EditInput } from './styled';
 import {Icon} from '../Icon';
 
-const ItemStyle = ({memo, onCheck, onDelete, isFinished, onEditFinished}) => {
+const ItemStyle = ({onCheck, onDelete, onEditFinished, todo}) => {
   const [isEdit, setIsEdit] = useState(false);
   const [input, setInput] = useState(memo);
+
+  const {memo, isFinished} = todo;
 
   const onEdit = ()=>{
     setIsEdit(!isEdit);
@@ -37,12 +39,11 @@ const ItemStyle = ({memo, onCheck, onDelete, isFinished, onEditFinished}) => {
 }
 
 ItemStyle.propTypes = {
-  memo: propTypes.string,
   children: propTypes.string,
   onCheck: propTypes.func,
   onEditFinished: propTypes.func,
   onDelete: propTypes.func,
-  isFinished: propTypes.bool,
+  todo: propTypes.object,
 }
 
 export {ItemStyle};

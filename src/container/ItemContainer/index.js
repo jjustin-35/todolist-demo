@@ -22,7 +22,7 @@ const Item = ({todo}) => {
 
   return (
     <>
-        <ItemStyle onCheck={onCheck} onEditFinished={onEditFinished} onDelete={onDelete} isFinished={todo.isFinished} memo={todo.memo}/>
+        <ItemStyle onCheck={onCheck} onEditFinished={onEditFinished} onDelete={onDelete} todo={todo}/>
     </>
   )
 }
