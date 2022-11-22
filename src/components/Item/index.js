@@ -4,10 +4,11 @@ import { ItemWrapper,Checkbox ,Text, Option, ContentWrapper, EditInput } from '.
 import {Icon} from '../Icon';
 
 const ItemStyle = ({onCheck, onDelete, onEditFinished, todo}) => {
+  const {memo, isFinished} = todo;
+
+
   const [isEdit, setIsEdit] = useState(false);
   const [input, setInput] = useState(memo);
-
-  const {memo, isFinished} = todo;
 
   const onEdit = ()=>{
     setIsEdit(!isEdit);

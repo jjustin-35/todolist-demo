@@ -1,11 +1,17 @@
 import React from 'react';
-import data from './data';
 import {Brand} from './styled';
+import {Container, Row, Col} from '../../global/gridSystem';
 
 export const Banner = () => {
   return (
-    <Brand apearance={data.apearance}>
-        {data.title}
-    </Brand>
+    <Container>
+      <Row>
+        <Col xs={12} md={6}>
+          <Brand apearance="black">
+          Todolist
+          </Brand>
+        </Col>
+      </Row>
+    </Container>
   )
 }

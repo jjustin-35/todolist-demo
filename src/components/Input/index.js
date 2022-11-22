@@ -1,13 +1,14 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { InputWrapper, Input, AddButton } from './styled';
+import { Icon } from '../Icon';
 
 const InputStyle = ({onAdd, onInput, input}) => {
   return (
     <InputWrapper>
         <Input onChange={onInput} value={input}/>
         <AddButton onClick={onAdd}>
-            新增
+            <Icon fontSize="1.5rem">add</Icon>
         </AddButton>
     </InputWrapper>
   )

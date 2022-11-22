@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 export const TabButton = styled.button`
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: black;
+    border: none;
+    border-bottom: 2px solid;
     font-weight: bold;
-    border-width: 1px;
-    ${({active}) => active ? `border-color: black black white black` : `border-color: white white black white`};
-    background-color: white;
-    border-style: solid;
+    ${({active}) => active ? `color: black; border-color: black` : `color: #aaa8a8; border-color: #aaa8a8`};
+    background-color: #fff;
     width: 100%;
     cursor: pointer;
 `

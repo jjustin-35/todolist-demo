@@ -2,9 +2,9 @@ import React from 'react';
 import propTypes from 'prop-types';
 import {IconWrapper} from './styled';
 
-const Icon = ({children}) => {
+const Icon = ({children, fontSize}) => {
   return (
-    <IconWrapper className="material-icons">
+    <IconWrapper className="material-icons" fontSize={fontSize}>
       {children}
     </IconWrapper>
   )
@@ -12,6 +12,7 @@ const Icon = ({children}) => {
 
 Icon.propTypes = {
     children: propTypes.string,
+    fontSize: propTypes.string
 }
 
 export {Icon};

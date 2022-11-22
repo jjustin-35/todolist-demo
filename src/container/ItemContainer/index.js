@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 import * as actions from '../../redux/actions';
 import propTypes from 'prop-types';
-import { ItemStyle } from '../../components/ItemStyle';
+import { ItemStyle } from '../../components/Item';
 
 const Item = ({todo}) => {
   const dispatch = useDispatch();

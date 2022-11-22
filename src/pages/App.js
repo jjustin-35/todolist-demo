@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import {Container, Row, Col} from '../global/styled';
+import { TodolistWrapper } from '../components/TodolistWrapper';
 import {Banner} from '../components/Banner';
 import {Tab} from '../container/Tab';
 import {List} from '../container/List';
 import {Input} from '../container/Input';
+import { Background} from '../components/Background';
 
 function App() {
   document.title = "todolist";
@@ -13,26 +14,14 @@ function App() {
   const display = useSelector(state => state.display);
 
   return (
-    <div className="App">
-      <Banner />
-      <Container>
-        <Row>
-          <Col xs={6}>
-            <Input />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6}>
-            <Tab />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6}>
-            <List tab={display}/>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Background>
+      <TodolistWrapper>
+          <Banner />
+          <Input />
+          <Tab />
+          <List tab={display}/>
+      </TodolistWrapper>
+    </Background>
   );
 }
 
