@@ -2,7 +2,7 @@ import * as actions from '../../constant/actionType';
 
 export const todolist = (state = [{memo: "first", isFinished: false, id: "1111"}], action)=>{
     switch(action.type){
-        case actions.ADD_TODO:
+        case actions.POST_TODO:
             return [
                 ...state,
                 action.payload

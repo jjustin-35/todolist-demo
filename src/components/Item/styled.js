@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-export const ItemWrapper = styled.div`
-`;
-
-export const Checkbox = styled.input.attrs({
-    type: "checkbox",
-})``
+// export const ItemWrapper = styled.div`
+//   transition: all 0.25s ease-out;
+//   &.show{
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+//   &.hide{
+//     opacity: 0;
+//     transform: scale(0);
+//   }
+// `;
 
 export const Text = styled.p`
   margin: 0;

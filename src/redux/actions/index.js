@@ -1,7 +1,7 @@
 import * as actions from '../../constant/actionType';
 
-export const addTodo = (memo) => (id) => ({
-    type: actions.ADD_TODO,
+export const postTodo = (memo) => (id) => ({
+    type: actions.POST_TODO,
     payload: {
         memo,
         isFinished: false,
@@ -35,4 +35,18 @@ export const getIsFinishedTrue = () => ({
 })
 export const getIsFinishedFalse = () => ({
     type: actions.GET_ISFINISHED_FALSE
+})
+
+export const postToast = ({isSuccess, message, id})=>({
+    type: actions.POST_TOAST,
+    payload: {
+        isSuccess,
+        message,
+        id
+    }
+})
+
+export const deleteToast = (id) =>({
+    type: actions.DELETE_TOAST,
+    id
 })

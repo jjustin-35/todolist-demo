@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import propTypes from 'prop-types';
-import { ItemWrapper,Checkbox ,Text, Option, ContentWrapper, EditInput } from './styled';
+import { Text, Option, ContentWrapper, EditInput } from './styled';
 import {Icon} from '../Icon';
 
 const ItemStyle = ({onCheck, onDelete, onEditFinished, todo}) => {
   const {memo, isFinished} = todo;
-
 
   const [isEdit, setIsEdit] = useState(false);
   const [input, setInput] = useState(memo);
@@ -15,9 +14,9 @@ const ItemStyle = ({onCheck, onDelete, onEditFinished, todo}) => {
   }
 
   return (
-    <ItemWrapper>
+    <>
         <ContentWrapper show={!isEdit}>
-          <Checkbox defaultChecked={isFinished} onClick={onCheck}/>
+          <input type="checkbox" defaultChecked={isFinished} onClick={onCheck}/>
           <Text isFinished={isFinished}>
               {memo}
           </Text>
@@ -35,7 +34,7 @@ const ItemStyle = ({onCheck, onDelete, onEditFinished, todo}) => {
           </Option>
           
         </ContentWrapper>
-    </ItemWrapper>
+    </>
   )
 }
 

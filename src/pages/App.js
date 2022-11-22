@@ -7,6 +7,7 @@ import {Tab} from '../container/Tab';
 import {List} from '../container/List';
 import {Input} from '../container/Input';
 import { Background} from '../components/Background';
+import {Toast} from '../container/Toast';
 
 function App() {
   document.title = "todolist";
@@ -21,6 +22,7 @@ function App() {
           <Tab />
           <List tab={display}/>
       </TodolistWrapper>
+      <Toast />
     </Background>
   );
 }
