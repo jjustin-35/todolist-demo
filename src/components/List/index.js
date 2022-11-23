@@ -11,7 +11,7 @@ const ListStyle = ({children}) => {
 }
 
 ListStyle.propTypes = {
-    children: propTypes.object,
+    children: propTypes.array,
 }
 
 export {ListStyle};

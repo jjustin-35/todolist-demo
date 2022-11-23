@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import propTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteToast } from '../../redux/actions';
 import { ToastStyle } from '../../components/Toast';
@@ -14,12 +13,12 @@ const Toast = () => {
         if(toasts.length !== 0){
             setTimeout(()=>{
                 toasts.forEach(toast=>{
-                    console.log(toast.id)
-                    dispatch(deleteToast(toast.id));
+                    dispatch(deleteToast(toast.id))
                 })
-            }, 3000)
+            }, 3250)
         }
     }, [toasts])
+
     return (
         <PortalWrapper id={"portalElemnet"}>
             <ToastWrapper>
@@ -32,9 +31,5 @@ const Toast = () => {
         </PortalWrapper>
     )
 };
-
-Toast.propTypes = {
-    toast: propTypes.any
-}
 
 export {Toast};

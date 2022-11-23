@@ -19,7 +19,7 @@ const PortalWrapper = ({children, id}) => {
         }
 
         return ()=>{
-            if(isCreated && element.parentNode){
+            if(isCreated){
                 document.body.removeChild(element)
             }
         }
@@ -37,4 +37,4 @@ PortalWrapper.propTypes = {
     id: propTypes.string
 }
 
-export {PortalWrapper}
+export {PortalWrapper};
