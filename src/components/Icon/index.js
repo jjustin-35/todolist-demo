@@ -1,18 +1,18 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import {IconWrapper} from './styled';
+import { IconWrapper } from './styled';
 
-const Icon = ({children, fontSize}) => {
+const Icon = ({ children, fontSize }) => {
   return (
-    <IconWrapper className="material-icons" fontSize={fontSize}>
+    <IconWrapper className='material-icons' fontSize={fontSize}>
       {children}
     </IconWrapper>
-  )
-}
+  );
+};
 
 Icon.propTypes = {
-    children: propTypes.string,
-    fontSize: propTypes.string
-}
+  children: propTypes.string,
+  fontSize: propTypes.string,
+};
 
-export {Icon};
+export default Icon;

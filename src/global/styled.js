@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -53,4 +53,4 @@ export const GlobalStyle = createGlobalStyle`
         opacity: 0;
         transform: translate(100%, 0);
     }
-`
+`;
