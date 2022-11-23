@@ -1,9 +1,43 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const show = keyframes`
+  from{
+    opacity: 0;
+    transform: translateX(100%);
+  }to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+const hide = keyframes`
+  from{
+    opacity: 1;
+    transform: translateX(0);
+  }to{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+`;
 
 export const ToastItem = styled.div`
-  ${({ isSuccess }) => (isSuccess === undefined ? `display: none` : 'display: flex;')};
-  ${({ isShow }) => (isShow ? `opacity: 1; transform: translateX(0)` : `opacity: 0; transform: translateX(100%)`)};
-  ${({ isSuccess }) => (isSuccess ? `background-color: #A9E5BB;` : `background-color: #F72C25;`)};
+  ${(props) =>
+    props.isSuccess === undefined
+      ? css`
+          display: none;
+          background-color: #a9e5bb;
+        `
+      : css`
+          display: flex;
+          background-color: #f72c25;
+        `};
+  animation: ${({ isShow }) =>
+    isShow
+      ? css`
+          ${show} ease-out 0.3s forwards
+        `
+      : css`
+          ${hide} ease-out 0.3s forwards
+        `};
   align-items: center;
   min-width: 200px;
   padding: 1rem;
@@ -11,7 +45,7 @@ export const ToastItem = styled.div`
   margin-top: 1rem;
   opacity: 0.7;
   border-radius: 3px;
-  transition: all 0.25s ease-out;
+  transition: all 0.3s ease-out;
   & span {
     margin-right: 0.5rem;
   }

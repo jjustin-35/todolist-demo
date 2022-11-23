@@ -5,14 +5,12 @@ import Icon from '../Icon';
 
 const ToastStyle = ({ isSuccess, children }) => {
   const timer = useRef(3000);
-  const [isShow, setIsShow] = useState('');
+  const [isShow, setIsShow] = useState(true);
 
   useEffect(() => {
-    if (isShow === '') {
-      setIsShow(true);
-    } else if (isShow) {
+    if (isShow) {
       setTimeout(() => {
-        setIsShow(false);
+        setIsShow(!isShow);
       }, timer.current);
     }
   }, [isShow]);

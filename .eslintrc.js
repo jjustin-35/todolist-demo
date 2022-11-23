@@ -25,7 +25,6 @@ module.exports = {
     "jest",
     "prettier",
     "security",
-    "@typescript-eslint", // 有用TS在加
   ],
   settings: {
     react: {

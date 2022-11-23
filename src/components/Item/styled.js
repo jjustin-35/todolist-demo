@@ -1,23 +1,34 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
-// const show = keyframes`
-//   from{
-//     transform: scale(0);
-//     opacity: 0;
-//   }to{
-//     transform: scale(1);
-//     opacity: 1;
-//   }
-// `
+const show = keyframes`
+  from{
+    opacity: 0;
+    transform: scale(0);
+  }to{
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+const hide = keyframes`
+  from{
+    opacity: 1;
+    transform: scale(1);
+  }to{
+    opacity: 0;
+    transform: scale(0);
+  }
+`;
 
 export const ItemWrapper = styled.div`
-  transition: all 0.25s ease-out;
-  ${({ isShow }) =>
-    isShow
-      ? `opacity: 1;
-    transform: scale(1);`
-      : `opacity: 0;
-    transform: scale(0);`};
+  transition: all 0.3s ease-out;
+  animation: ${(props) =>
+    props.isShow
+      ? css`
+          ${show} ease-out 0.3s forwards
+        `
+      : css`
+          ${hide} ease-out 0.3s forwards
+        `};
 `;
 
 export const Text = styled.p`

@@ -8,13 +8,11 @@ const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }) => {
 
   const [isEdit, setIsEdit] = useState(false);
   const [input, setInput] = useState(memo);
-  const [isShow, setIsShow] = useState('');
+  const [isShow, setIsShow] = useState(true);
 
   useEffect(() => {
     if (isShow === false) {
-      setTimeout(() => onDelete(), 250);
-    } else if (isShow === '') {
-      setIsShow(true);
+      setTimeout(() => onDelete(), 300);
     }
   }, [isShow]);
 
@@ -25,7 +23,7 @@ const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }) => {
   return (
     <ItemWrapper isShow={isShow}>
       <ContentWrapper show={!isEdit}>
-        <input type='checkbox' defaultChecked={isFinished} onClick={onCheck} />
+        <input type="checkbox" defaultChecked={isFinished} onClick={onCheck} />
         <Text isFinished={isFinished}>{memo}</Text>
         <Option onClick={onEdit}>
           <Icon>edit</Icon>

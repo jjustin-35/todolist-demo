@@ -4,7 +4,7 @@ import { IconWrapper } from './styled';
 
 const Icon = ({ children, fontSize }) => {
   return (
-    <IconWrapper className='material-icons' fontSize={fontSize}>
+    <IconWrapper className="material-icons" fontSize={fontSize}>
       {children}
     </IconWrapper>
   );
