@@ -10,7 +10,7 @@ const Item = ({ todo }) => {
   const { id } = todo;
 
   const onCheck = () => {
-    dispatch(actions.patchToggleTodo(id));
+    dispatch(actions.putToggleTodo(id));
   };
 
   const onDelete = () => {
@@ -18,7 +18,7 @@ const Item = ({ todo }) => {
     dispatch(
       actions.postToast({
         isSuccess: true,
-        message: '刪除成功！',
+        message: 'Todo is removed',
         id: uuidv4(),
       }),
     );
@@ -29,15 +29,15 @@ const Item = ({ todo }) => {
       return dispatch(
         actions.postToast({
           isSuccess: false,
-          message: '編輯不可留空！',
+          message: 'Input is required',
           id: uuidv4(),
         }),
       );
-    dispatch(actions.patchTodo(id)(memo));
+    dispatch(actions.putTodo({ memo, id }));
     dispatch(
       actions.postToast({
         isSuccess: true,
-        message: '編輯成功！',
+        message: 'Todo is edited',
         id: uuidv4(),
       }),
     );

@@ -5,9 +5,9 @@ import TabStyle from '../../components/Tab';
 
 export const Tab = () => {
   let options = [
-    { name: '全部', id: 'all', active: true },
-    { name: '已完成', id: 'finished', active: false },
-    { name: '未完成', id: 'unfinished', active: false },
+    { name: 'all', id: 'all', isActive: true },
+    { name: 'finished', id: 'finished', isActive: false },
+    { name: 'unfinished', id: 'unfinished', isActive: false },
   ];
   const display = useSelector((state) => state.display);
   const dispatch = useDispatch();
@@ -15,12 +15,12 @@ export const Tab = () => {
   const toggleTab = (targetTab) => {
     return options.map((opt) => {
       if (opt.id === targetTab) {
-        if (!opt.active) {
-          opt.active = !opt.active;
+        if (!opt.isActive) {
+          opt.isActive = !opt.isActive;
         }
       } else {
-        if (opt.active) {
-          opt.active = !opt.active;
+        if (opt.isActive) {
+          opt.isActive = !opt.isActive;
         }
       }
     });

@@ -6,7 +6,7 @@ const TabStyle = ({ options, onTab }) => {
   return (
     <TabButtons>
       {options.map((opt) => (
-        <TabButton active={opt.active} key={opt.id} id={opt.id} onClick={onTab}>
+        <TabButton isActive={opt.isActive} key={opt.id} id={opt.id} onClick={onTab}>
           {opt.name}
         </TabButton>
       ))}

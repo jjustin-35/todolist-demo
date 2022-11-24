@@ -20,7 +20,6 @@ const hide = keyframes`
 `;
 
 export const ItemWrapper = styled.div`
-  transition: all 0.3s ease-out;
   animation: ${(props) =>
     props.isShow
       ? css`
@@ -36,12 +35,12 @@ export const Text = styled.p`
   padding-left: 1rem;
   padding-right: 1rem;
   color: black;
-  ${({ isFinished }) => isFinished && `text-decoration: line-through; color: gray`};
+  ${(props) => props.isFinished && `text-decoration: line-through; color: gray`};
   width: 100%;
 `;
 
 export const ContentWrapper = styled.div`
-  ${({ show }) => (show ? `display: flex` : `display: none`)};
+  ${(props) => (props.show ? `display: flex` : `display: none`)};
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -49,9 +48,9 @@ export const ContentWrapper = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const EditInput = styled.input.attrs(({ preValue }) => ({
+export const EditInput = styled.input.attrs((props) => ({
   type: 'text',
-  defaultValue: preValue,
+  defaultValue: props.preValue,
 }))`
   width: 100%;
   margin-right: 1rem;
@@ -65,7 +64,7 @@ export const Option = styled.a`
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
-  ${({ color = 'black' }) => `color: ${color}`};
+  color: ${({ color = 'black' }) => `${color}`};
   white-space: nowrap;
   vertical-align: middle;
 `;

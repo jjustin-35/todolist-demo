@@ -24,14 +24,18 @@ export const ToastItem = styled.div`
     props.isSuccess === undefined
       ? css`
           display: none;
+        `
+      : props.isSuccess
+      ? css`
+          display: flex;
           background-color: #a9e5bb;
         `
       : css`
           display: flex;
           background-color: #f72c25;
         `};
-  animation: ${({ isShow }) =>
-    isShow
+  animation: ${(props) =>
+    props.isShow
       ? css`
           ${show} ease-out 0.3s forwards
         `
@@ -45,7 +49,6 @@ export const ToastItem = styled.div`
   margin-top: 1rem;
   opacity: 0.7;
   border-radius: 3px;
-  transition: all 0.3s ease-out;
   & span {
     margin-right: 0.5rem;
   }

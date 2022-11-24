@@ -18,16 +18,16 @@ export const Input = () => {
       return dispatch(
         postToast({
           isSuccess: false,
-          message: '欄位不可留空！',
+          message: 'Todo is required',
           id,
         }),
       );
-    dispatch(postTodo(input)(id));
+    dispatch(postTodo({ memo: input, id }));
     setInput('');
     dispatch(
       postToast({
         isSuccess: true,
-        message: '新增成功！',
+        message: 'Todo is added',
         id: uuidv4(),
       }),
     );

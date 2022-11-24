@@ -1,20 +1,16 @@
 import * as actions from '../../constant/actionType';
 
-export const postTodo = (memo) => (id) => ({
+export const postTodo = (data) => ({
   type: actions.POST_TODO,
   payload: {
-    memo,
+    ...data,
     isFinished: false,
-    id,
   },
 });
 
-export const patchTodo = (id) => (memo) => ({
-  type: actions.PATCH_TODO,
-  payload: {
-    id,
-    memo,
-  },
+export const putTodo = (data) => ({
+  type: actions.PUT_TODO,
+  payload: data,
 });
 
 export const removeTodo = (id) => ({
@@ -22,8 +18,8 @@ export const removeTodo = (id) => ({
   id,
 });
 
-export const patchToggleTodo = (id) => ({
-  type: actions.PATCH_TOGGLE_TODO,
+export const putToggleTodo = (id) => ({
+  type: actions.PUT_TOGGLE_TODO,
   id,
 });
 

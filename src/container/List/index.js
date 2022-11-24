@@ -19,7 +19,7 @@ const List = ({ tab }) => {
 
   let content;
   if (todolist.length === 0) {
-    content = <Message>這裡沒有東西喔！</Message>;
+    content = <Message>There is nothing here...</Message>;
   } else {
     content = todolist.map((todo) => <Item todo={todo} key={todo.id} />);
   }
