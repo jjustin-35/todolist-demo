@@ -19,8 +19,8 @@ export const Input = styled.input.attrs({
 `;
 
 export const AddButton = styled.button`
-  ${({ bgColor = 'black' }) => `background-color: ${bgColor}`};
-  ${({ textColor = 'white' }) => `color: ${textColor}`};
+  background-color: black;
+  color: white;
   cursor: pointer;
   padding: 0.25rem;
   border: none;

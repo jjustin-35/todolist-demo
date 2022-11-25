@@ -4,8 +4,11 @@ export const TabButton = styled.button`
   border: none;
   border-bottom: 2px solid;
   font-weight: bold;
+  background-color: #fff;
+  width: 100%;
+  cursor: pointer;
   ${(props) =>
-    props.isActive
+    props.tab === props.id
       ? css`
           color: black;
           border-color: black;
@@ -14,9 +17,6 @@ export const TabButton = styled.button`
           color: #aaa8a8;
           border-color: #aaa8a8;
         `};
-  background-color: #fff;
-  width: 100%;
-  cursor: pointer;
 `;
 
 export const TabButtons = styled.div`

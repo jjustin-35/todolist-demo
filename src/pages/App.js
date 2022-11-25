@@ -1,26 +1,25 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
 
 import TodolistWrapper from '../components/TodolistWrapper';
 import { Banner } from '../components/Banner';
-import { Tab } from '../container/Tab';
-import List from '../container/List';
-import { Input } from '../container/Input';
+import Tab from '../containers/Tab';
+import List from '../containers/List';
+import { Input } from '../containers/Input';
 import Background from '../components/Background';
-import Toast from '../container/Toast';
+import Toast from '../containers/Toast';
 
 function App() {
   document.title = 'todolist';
 
-  const display = useSelector((state) => state.display);
+  const [tab, setTab] = useState('all');
 
   return (
     <Background>
       <TodolistWrapper>
         <Banner />
         <Input />
-        <Tab />
-        <List tab={display} />
+        <Tab tab={tab} setTab={setTab} />
+        <List tab={tab} />
       </TodolistWrapper>
       <Toast />
     </Background>

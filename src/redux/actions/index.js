@@ -10,7 +10,7 @@ export const postTodo = (data) => ({
 
 export const putTodo = (data) => ({
   type: actions.PUT_TODO,
-  payload: data,
+  data,
 });
 
 export const removeTodo = (id) => ({
@@ -21,16 +21,6 @@ export const removeTodo = (id) => ({
 export const putToggleTodo = (id) => ({
   type: actions.PUT_TOGGLE_TODO,
   id,
-});
-
-export const getAll = () => ({
-  type: actions.GET_ALL,
-});
-export const getIsFinishedTrue = () => ({
-  type: actions.GET_ISFINISHED_TRUE,
-});
-export const getIsFinishedFalse = () => ({
-  type: actions.GET_ISFINISHED_FALSE,
 });
 
 export const postToast = ({ isSuccess, message, id }) => ({

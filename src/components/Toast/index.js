@@ -3,20 +3,32 @@ import propTypes from 'prop-types';
 import { ToastItem } from './styled';
 import Icon from '../Icon';
 
-const ToastStyle = ({ isSuccess, children }) => {
-  const timer = useRef(3000);
+const ToastStyle = ({ isSuccess, children, onExpire }) => {
+  const toastRef = useRef();
   const [isShow, setIsShow] = useState(true);
 
   useEffect(() => {
     if (isShow) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setIsShow(!isShow);
-      }, timer.current);
+      }, 3000);
+
+      return () => clearTimeout(timer);
     }
   }, [isShow]);
 
+  useEffect(() => {
+    if (!isShow) {
+      const toast = toastRef.current;
+      const handler = () => onExpire();
+      toast.addEventListener('animationend', handler);
+
+      return () => toast.removeEventListener('animationend', handler);
+    }
+  });
+
   return (
-    <ToastItem isSuccess={isSuccess} isShow={isShow}>
+    <ToastItem isSuccess={isSuccess} isShow={isShow} ref={toastRef}>
       <Icon>{isSuccess ? 'check_circle_outline' : 'highlight_off'}</Icon>
       {children}
     </ToastItem>
@@ -26,6 +38,8 @@ const ToastStyle = ({ isSuccess, children }) => {
 ToastStyle.propTypes = {
   isSuccess: propTypes.bool,
   children: propTypes.any,
+  ref: propTypes.any,
+  onExpire: propTypes.func,
 };
 
 export default ToastStyle;

@@ -43,11 +43,7 @@ const Item = ({ todo }) => {
     );
   };
 
-  return (
-    <>
-      <ItemStyle onCheck={onCheck} onEditFinished={onEditFinished} onDelete={onDelete} todo={todo} />
-    </>
-  );
+  return <ItemStyle onCheck={onCheck} onEditFinished={onEditFinished} onDelete={onDelete} todo={todo} />;
 };
 
 Item.propTypes = {

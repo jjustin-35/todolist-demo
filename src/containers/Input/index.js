@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { postTodo, postToast } from '../../redux/actions';
 import InputStyle from '../../components/Input';
 
 export const Input = () => {
-  const [input, setInput] = useState('');
+  const inputRef = useRef();
   const dispatch = useDispatch();
-
-  const onInput = (e) => {
-    setInput(e.target.value);
-  };
 
   const onAdd = () => {
     const id = uuidv4();
+    let input = inputRef.current.value;
     if (!input)
       return dispatch(
         postToast({
@@ -23,7 +20,6 @@ export const Input = () => {
         }),
       );
     dispatch(postTodo({ memo: input, id }));
-    setInput('');
     dispatch(
       postToast({
         isSuccess: true,
@@ -32,9 +28,5 @@ export const Input = () => {
       }),
     );
   };
-  return (
-    <>
-      <InputStyle onAdd={onAdd} onInput={onInput} input={input} />
-    </>
-  );
+  return <InputStyle onAdd={onAdd} inputRef={inputRef} />;
 };

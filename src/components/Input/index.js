@@ -3,10 +3,10 @@ import propTypes from 'prop-types';
 import { InputWrapper, Input, AddButton } from './styled';
 import Icon from '../Icon';
 
-const InputStyle = ({ onAdd, onInput, input }) => {
+const InputStyle = ({ onAdd, inputRef }) => {
   return (
     <InputWrapper>
-      <Input onChange={onInput} value={input} />
+      <Input ref={inputRef} />
       <AddButton onClick={onAdd}>
         <Icon fontSize="1.5rem">add</Icon>
       </AddButton>
@@ -15,9 +15,8 @@ const InputStyle = ({ onAdd, onInput, input }) => {
 };
 
 InputStyle.propTypes = {
-  onInput: propTypes.func,
-  input: propTypes.string,
   onAdd: propTypes.func,
+  inputRef: propTypes.any,
 };
 
 export default InputStyle;

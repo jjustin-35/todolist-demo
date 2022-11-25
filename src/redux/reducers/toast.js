@@ -1,11 +1,13 @@
 import * as actions from '../../constant/actionType';
 
-export const toast = (state = [], action) => {
+const initState = {};
+
+export const toast = (state = initState, action) => {
   switch (action.type) {
     case actions.POST_TOAST:
-      return [...state, action.payload];
+      return action.payload;
     case actions.DELETE_TOAST:
-      return state.filter((toast) => toast.id !== action.id);
+      return {};
     default:
       return state;
   }

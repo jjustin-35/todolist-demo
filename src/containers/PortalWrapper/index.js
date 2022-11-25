@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 
 const PortalWrapper = ({ children, id }) => {
-  const [portalElement, setPortalElement] = useState();
+  const [portalElement, setPortalElement] = useState(null);
 
   useEffect(() => {
     let element = document.querySelector(`#${id}`);

@@ -35,13 +35,14 @@ export const ToastItem = styled.div`
           background-color: #f72c25;
         `};
   animation: ${(props) =>
-    props.isShow
-      ? css`
-          ${show} ease-out 0.3s forwards
-        `
-      : css`
-          ${hide} ease-out 0.3s forwards
-        `};
+      props.isShow
+        ? css`
+            ${show}
+          `
+        : css`
+            ${hide}
+          `}
+    ease-out 0.3s forwards;
   align-items: center;
   min-width: 200px;
   padding: 1rem;
