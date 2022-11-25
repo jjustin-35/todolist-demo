@@ -27,6 +27,7 @@ export const Input = () => {
         id: uuidv4(),
       }),
     );
+    inputRef.current.value = '';
   };
   return <InputStyle onAdd={onAdd} inputRef={inputRef} />;
 };

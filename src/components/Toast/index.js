@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import propTypes from 'prop-types';
-import { ToastItem } from './styled';
+import { ToastItem, ToastWrapper } from './styled';
 import Icon from '../Icon';
 
 const ToastStyle = ({ isSuccess, children, onExpire }) => {
@@ -28,10 +28,12 @@ const ToastStyle = ({ isSuccess, children, onExpire }) => {
   });
 
   return (
-    <ToastItem isSuccess={isSuccess} isShow={isShow} ref={toastRef}>
-      <Icon>{isSuccess ? 'check_circle_outline' : 'highlight_off'}</Icon>
-      {children}
-    </ToastItem>
+    <ToastWrapper>
+      <ToastItem isSuccess={isSuccess} isShow={isShow} ref={toastRef}>
+        <Icon>{isSuccess ? 'check_circle_outline' : 'highlight_off'}</Icon>
+        {children}
+      </ToastItem>
+    </ToastWrapper>
   );
 };
 

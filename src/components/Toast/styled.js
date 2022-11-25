@@ -54,3 +54,10 @@ export const ToastItem = styled.div`
     margin-right: 0.5rem;
   }
 `;
+
+export const ToastWrapper = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  overflow: hidden;
+`;
