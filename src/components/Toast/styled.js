@@ -21,11 +21,7 @@ const hide = keyframes`
 
 export const ToastItem = styled.div`
   ${(props) =>
-    props.isSuccess === undefined
-      ? css`
-          display: none;
-        `
-      : props.isSuccess
+    props.isSuccess
       ? css`
           display: flex;
           background-color: #a9e5bb;

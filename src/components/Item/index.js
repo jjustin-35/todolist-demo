@@ -31,7 +31,7 @@ const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }) => {
 
   return (
     <ItemWrapper isShow={isShow} ref={itemRef}>
-      <ContentWrapper show={!isEdit}>
+      <ContentWrapper isEdit={!isEdit}>
         <input type="checkbox" defaultChecked={isFinished} onClick={onCheck} />
         <Text isFinished={isFinished}>{memo}</Text>
         <Option onClick={onEdit}>
@@ -41,7 +41,7 @@ const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }) => {
           <Icon>delete</Icon>
         </Option>
       </ContentWrapper>
-      <ContentWrapper show={isEdit}>
+      <ContentWrapper isEdit={isEdit}>
         <EditInput preValue={memo} ref={editRef} />
         <Option
           onClick={() => {
@@ -57,7 +57,6 @@ const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }) => {
 };
 
 ItemStyle.propTypes = {
-  children: propTypes.string,
   onCheck: propTypes.func,
   onEditFinished: propTypes.func,
   onDelete: propTypes.func,

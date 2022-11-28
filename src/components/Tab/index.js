@@ -5,11 +5,14 @@ import { TabButton, TabButtons } from './styled';
 const TabStyle = ({ options, onTab, tab }) => {
   return (
     <TabButtons>
-      {options.map((opt) => (
-        <TabButton tab={tab} key={opt} id={opt} onClick={onTab}>
-          {opt}
-        </TabButton>
-      ))}
+      {options.map((opt) => {
+        const isActive = tab === opt;
+        return (
+          <TabButton isActive={isActive} key={opt} id={opt} onClick={onTab}>
+            {opt}
+          </TabButton>
+        );
+      })}
     </TabButtons>
   );
 };

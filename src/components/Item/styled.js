@@ -21,13 +21,14 @@ const hide = keyframes`
 
 export const ItemWrapper = styled.div`
   animation: ${(props) =>
-    props.isShow
-      ? css`
-          ${show} ease-out 0.3s forwards
-        `
-      : css`
-          ${hide} ease-out 0.3s forwards
-        `};
+      props.isShow
+        ? css`
+            ${show}
+          `
+        : css`
+            ${hide}
+          `}
+    ease-out 0.3s forwards;
 `;
 
 export const Text = styled.p`
@@ -40,7 +41,7 @@ export const Text = styled.p`
 `;
 
 export const ContentWrapper = styled.div`
-  ${(props) => (props.show ? `display: flex` : `display: none`)};
+  ${(props) => (props.isEdit ? `display: flex` : `display: none`)};
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +65,7 @@ export const Option = styled.a`
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
-  color: ${({ color = 'black' }) => `${color}`};
+  color: ${(props) => props.color || 'black'};
   white-space: nowrap;
   vertical-align: middle;
 `;

@@ -7,5 +7,5 @@ export const Brand = styled.div`
   font-size: 3rem;
   padding-top: 1.5rem;
   font-weight: bold;
-  color: ${(props) => (props.appearance ? `black` : `unset`)};
+  color: ${(props) => props.appearance || 'black'};
 `;

@@ -32,7 +32,7 @@ export const postToast = ({ isSuccess, message, id }) => ({
   },
 });
 
-export const deleteToast = (id) => ({
-  type: actions.DELETE_TOAST,
+export const clearToast = (id) => ({
+  type: actions.CLEAR_TOAST,
   id,
 });

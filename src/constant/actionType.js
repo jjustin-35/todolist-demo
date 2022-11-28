@@ -4,4 +4,4 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 export const PUT_TOGGLE_TODO = 'PUT_TOGGLE_TODO';
 
 export const POST_TOAST = 'POST_TOAST';
-export const DELETE_TOAST = 'DELETE_TOAST';
+export const CLEAR_TOAST = 'CLEAR_TOAST';

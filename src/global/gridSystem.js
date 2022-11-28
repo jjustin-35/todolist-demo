@@ -25,23 +25,23 @@ export const Container = styled.div`
 
 export const Row = styled.div`
   display: flex;
-  justify-content: ${({ justify = 'center' }) => justify};
+  justify-content: ${(props) => props.justify || 'center'};
 `;
 
 const countWidth = (col) => col * (1 / 12) * 100;
 
 export const Col = styled.div`
-  width: ${({ xs }) => countWidth(xs)}%;
+  width: ${(props) => countWidth(props.xs)}%;
   padding-left: ${gutter / 2}px;
   padding-right: ${gutter / 2}px;
 
   @media (min-width: ${mediaRule.md}) {
-    width: ${({ md }) => md && `${countWidth(md)}%`};
+    width: ${(props) => props.md && `${countWidth(props.md)}%`};
   }
   @media (min-width: ${mediaRule.lg}) {
-    width: ${({ lg }) => lg && `${countWidth(lg)}%`};
+    width: ${(props) => props.lg && `${countWidth(props.lg)}%`};
   }
   @media (min-width: ${mediaRule.xl}) {
-    width: ${({ xl }) => xl && `${countWidth(xl)}%`};
+    width: ${(props) => props.xl && `${countWidth(props.xl)}%`};
   }
 `;

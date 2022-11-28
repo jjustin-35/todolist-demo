@@ -8,7 +8,7 @@ export const TabButton = styled.button`
   width: 100%;
   cursor: pointer;
   ${(props) =>
-    props.tab === props.id
+    props.isActive
       ? css`
           color: black;
           border-color: black;
