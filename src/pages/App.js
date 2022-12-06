@@ -1,38 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
 
-import {Container, Row, Col} from '../global/styled';
-import {Banner} from '../components/Banner';
-import {Tab} from '../container/Tab';
-import {List} from '../container/List';
-import {Input} from '../container/Input';
+import TodolistWrapper from '../components/TodolistWrapper';
+import { Banner } from '../components/Banner';
+import Tab from '../containers/Tab';
+import List from '../containers/List';
+import { Input } from '../containers/Input';
+import Background from '../components/Background';
+import Toast from '../containers/Toast';
 
 function App() {
-  document.title = "todolist";
+  document.title = 'todolist';
 
-  const display = useSelector(state => state.display);
+  const [tab, setTab] = useState('all');
 
   return (
-    <div className="App">
-      <Banner />
-      <Container>
-        <Row>
-          <Col xs={6}>
-            <Input />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6}>
-            <Tab />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6}>
-            <List tab={display}/>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <Background>
+      <TodolistWrapper>
+        <Banner />
+        <Input />
+        <Tab tab={tab} setTab={setTab} />
+        <List tab={tab} />
+      </TodolistWrapper>
+      <Toast />
+    </Background>
   );
 }
 

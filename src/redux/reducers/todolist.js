@@ -1,34 +1,19 @@
 import * as actions from '../../constant/actionType';
+import { postTodoState, putTodoState, removeTodoState, putToggleTodoState } from '../../helpers';
 
-export const todolist = (state = [{memo: "first", isFinished: false, id: "1111"}], action)=>{
-    switch(action.type){
-        case actions.ADD_TODO:
-            return [
-                ...state,
-                action.payload
-            ];
-        case actions.PATCH_TODO:
-            return state.map(todo => {
-                if(todo.id === action.payload.id){
-                    return {
-                        ...todo,
-                        memo: action.payload.memo
-                    }
-                }
+const initState = [{ memo: 'finish the todolist', isFinished: false, id: '1111' }];
 
-                return todo;
-            })
-        case actions.REMOVE_TODO:
-            return state.filter(todo => todo.id !== action.id);
-        case actions.PATCH_TOGGLE_TODO:
-            return state.map(todo => {
-                if(todo.id === action.id){
-                    todo.isFinished = !todo.isFinished;
-                }
-
-                return todo;
-            })
-        default:
-            return state;
-    }
-}
+export const todolist = (state = initState, action) => {
+  switch (action.type) {
+    case actions.POST_TODO:
+      return postTodoState(state, action);
+    case actions.PUT_TODO:
+      return putTodoState(state, action);
+    case actions.REMOVE_TODO:
+      return removeTodoState(state, action);
+    case actions.PUT_TOGGLE_TODO:
+      return putToggleTodoState(state, action);
+    default:
+      return state;
+  }
+};
